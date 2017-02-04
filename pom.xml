@@ -16,7 +16,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -32,7 +32,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>test</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -51,7 +51,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.5.Final</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 
 		<dependency>
@@ -71,7 +71,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.32</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 
 	</dependencies>
