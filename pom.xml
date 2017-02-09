@@ -16,13 +16,24 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+                <dependency>
+                    <groupId>com.douwe.generic</groupId>
+                    <artifactId>generic-dao</artifactId>
+                    <version>1.0</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>javax.persistence</groupId>
+                            <artifactId>persistence-api</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -32,7 +43,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>test</scope>
+			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -51,7 +62,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.5.Final</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 
 		<dependency>
@@ -71,7 +82,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.32</version>
-			<scope>runtime</scope>
+			
 		</dependency>
 
 	</dependencies>
