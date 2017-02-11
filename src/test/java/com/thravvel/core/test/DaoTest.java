@@ -50,6 +50,7 @@ public class DaoTest {
 		try {
 
 			agencyDao.create(agency);
+			assertNotNull(agencyDao.findById(agency.getId()));
 
 		} catch (DataAccessException e) {
 			System.err.println("Erreur creation nouvelle agence");
