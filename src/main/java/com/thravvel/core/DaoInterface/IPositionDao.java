@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Position;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IPositionDao extends IDao<Position, Long>{
-    
+public interface IPositionDao extends IDao<Position, Long> {
+
 }

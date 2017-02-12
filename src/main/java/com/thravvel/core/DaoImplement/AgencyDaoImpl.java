@@ -8,13 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.IAgencyDao;
 import com.thravvel.core.entities.Agency;
-import java.io.Serializable;
-import sun.net.www.content.text.Generic;
 
 /**
  *
  * @author fd
  */
-public class AgencyDaoImpl extends GenericDao<Agency, Long> implements IAgencyDao{
-    
+public class AgencyDaoImpl extends GenericDao<Agency, Long> implements IAgencyDao {
+
 }

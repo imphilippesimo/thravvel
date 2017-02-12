@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Message;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IMessageDao extends IDao<Message, Long>{
-    
+public interface IMessageDao extends IDao<Message, Long> {
+
 }

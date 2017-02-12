@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Travel;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface ITravelDao extends IDao<Travel, Long>{
-    
+public interface ITravelDao extends IDao<Travel, Long> {
+
 }

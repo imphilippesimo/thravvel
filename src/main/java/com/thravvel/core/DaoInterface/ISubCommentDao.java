@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.SubComment;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface ISubCommentDao extends IDao<SubComment, Long>{
-    
+public interface ISubCommentDao extends IDao<SubComment, Long> {
+
 }

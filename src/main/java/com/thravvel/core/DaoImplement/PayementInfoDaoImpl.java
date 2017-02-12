@@ -8,12 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.IPaymentInfoDao;
 import com.thravvel.core.entities.PaymentInfo;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public class PayementInfoDaoImpl extends GenericDao<PaymentInfo, Long> implements IPaymentInfoDao{
-    
+public class PayementInfoDaoImpl extends GenericDao<PaymentInfo, Long> implements IPaymentInfoDao {
+
 }

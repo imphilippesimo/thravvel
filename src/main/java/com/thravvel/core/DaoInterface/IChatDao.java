@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Chat;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IChatDao extends IDao<Chat, Long>{
-    
+public interface IChatDao extends IDao<Chat, Long> {
+
 }

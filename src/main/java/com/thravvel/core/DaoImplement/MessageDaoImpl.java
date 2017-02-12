@@ -8,12 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.IMessageDao;
 import com.thravvel.core.entities.Message;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public class MessageDaoImpl extends GenericDao<Message, Long> implements IMessageDao{
-    
+public class MessageDaoImpl extends GenericDao<Message, Long> implements IMessageDao {
+
 }

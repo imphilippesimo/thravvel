@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Picture;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IPictureDao extends IDao<Picture, Long>{
-    
+public interface IPictureDao extends IDao<Picture, Long> {
+
 }

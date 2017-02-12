@@ -12,6 +12,6 @@ import com.thravvel.core.entities.GeneralComment;
  *
  * @author fd
  */
-public interface IGeneralCommentDao extends IDao<GeneralComment, Long>{
-    
+public interface IGeneralCommentDao extends IDao<GeneralComment, Long> {
+
 }

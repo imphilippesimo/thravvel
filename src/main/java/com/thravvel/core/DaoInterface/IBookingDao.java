@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Booking;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IBookingDao extends IDao<Booking, Long>{
-    
+public interface IBookingDao extends IDao<Booking, Long> {
+
 }

@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Rating;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IRatingDao extends IDao<Rating, Long>{
-    
+public interface IRatingDao extends IDao<Rating, Long> {
+
 }

@@ -8,12 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.ITravelDao;
 import com.thravvel.core.entities.Travel;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public class TravelDaoImpl extends GenericDao<Travel, Long> implements ITravelDao{
-    
+public class TravelDaoImpl extends GenericDao<Travel, Long> implements ITravelDao {
+
 }

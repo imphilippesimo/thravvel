@@ -12,6 +12,6 @@ import com.thravvel.core.entities.User;
  *
  * @author fd
  */
-public interface IUserDao extends IDao<User, Long>{
-    
+public interface IUserDao extends IDao<User, Long> {
+
 }

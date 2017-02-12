@@ -8,12 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.IPositionDao;
 import com.thravvel.core.entities.Position;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public class PositionDaoImpl extends GenericDao<Position, Long> implements IPositionDao{
-    
+public class PositionDaoImpl extends GenericDao<Position, Long> implements IPositionDao {
+
 }

@@ -7,12 +7,11 @@ package com.thravvel.core.DaoInterface;
 
 import com.douwe.generic.dao.IDao;
 import com.thravvel.core.entities.Agency;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public interface IAgencyDao extends IDao<Agency, Long>{
-    
+public interface IAgencyDao extends IDao<Agency, Long> {
+
 }

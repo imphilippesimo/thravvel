@@ -8,12 +8,11 @@ package com.thravvel.core.DaoImplement;
 import com.douwe.generic.dao.impl.GenericDao;
 import com.thravvel.core.DaoInterface.IGeneralCommentDao;
 import com.thravvel.core.entities.GeneralComment;
-import java.io.Serializable;
 
 /**
  *
  * @author fd
  */
-public class GeneralCommentDaoImpl extends GenericDao<GeneralComment, Long> implements IGeneralCommentDao{
-    
+public class GeneralCommentDaoImpl extends GenericDao<GeneralComment, Long> implements IGeneralCommentDao {
+
 }
