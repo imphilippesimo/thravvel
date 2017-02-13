@@ -6,16 +6,18 @@ package com.thravvel.core.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
+@Entity
 public class Chat extends BaseClass {
-	@OneToMany(mappedBy = "chat")
+	@OneToMany
 	private List<User> chaters;
-	@OneToMany(mappedBy = "chat")
+	@OneToMany
 	private List<Message> messages;
 	private Date creationDate;
 

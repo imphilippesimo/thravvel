@@ -19,6 +19,14 @@ public class Picture extends BaseClass {
 	private String path;
 
 	/**
+	 * 
+	 */
+	public Picture() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param current
 	 * @param path
 	 */

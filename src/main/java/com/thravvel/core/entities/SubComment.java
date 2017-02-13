@@ -25,6 +25,14 @@ public class SubComment extends GeneralComment {
 	private Comment parent;
 
 	/**
+	 * 
+	 */
+	public SubComment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param parent
 	 * @param reactions
 	 * @param commentator

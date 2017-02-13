@@ -25,6 +25,14 @@ public class Rating extends BaseClass {
 	private Station rated;
 	private int rate;
 
+	/**
+	 * 
+	 */
+	public Rating() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

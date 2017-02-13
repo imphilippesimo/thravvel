@@ -23,6 +23,18 @@ public class Comment extends GeneralComment {
 	private List<SubComment> subComments;
 
 	/**
+	 * @param reactions
+	 * @param commentator
+	 * @param commented
+	 * @param content
+	 * @param abusiveRate
+	 */
+	public Comment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param subComments
 	 */
 	public Comment(List<SubComment> subComments, List<String> reactions, User commentator, Station commented,

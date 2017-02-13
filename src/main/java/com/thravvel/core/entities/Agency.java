@@ -22,6 +22,14 @@ public class Agency extends BaseClass {
 	private List<Station> stations;
 
 	/**
+	 * 
+	 */
+	public Agency() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param name
 	 * @param stations
 	 */

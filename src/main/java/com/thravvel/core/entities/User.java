@@ -118,6 +118,14 @@ public class User extends BaseClass {
 	}
 
 	/**
+	 * 
+	 */
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @return the lastName
 	 */
 	public String getLastName() {

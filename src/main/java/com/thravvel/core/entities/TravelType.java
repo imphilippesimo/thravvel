@@ -28,6 +28,14 @@ public class TravelType extends BaseClass {
 		this.price = price;
 	}
 
+	/**
+	 * 
+	 */
+	public TravelType() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 

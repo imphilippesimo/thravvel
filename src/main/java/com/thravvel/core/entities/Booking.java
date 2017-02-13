@@ -28,6 +28,14 @@ public class Booking extends BaseClass {
 	private Boolean confirmed;
 
 	/**
+	 * 
+	 */
+	public Booking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param booker
 	 * @param travel
 	 * @param date

@@ -22,6 +22,14 @@ public class Position extends BaseClass {
 	private Date time;
 
 	/**
+	 * 
+	 */
+	public Position() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @return the longitutde
 	 */
 	public double getLongitutde() {

@@ -128,4 +128,11 @@ public class GeneralComment extends BaseClass {
 		this.abusiveRate = abusiveRate;
 	}
 
+	/**
+	 * 
+	 */
+	public GeneralComment() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

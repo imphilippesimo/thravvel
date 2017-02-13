@@ -37,6 +37,14 @@ public class Station extends BaseClass {
 	private List<Travel> arrivals;
 
 	/**
+	 * 
+	 */
+	public Station() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @param agency
 	 * @param area
 	 * @param position

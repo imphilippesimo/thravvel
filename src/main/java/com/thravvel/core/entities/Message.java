@@ -27,6 +27,14 @@ public class Message extends BaseClass {
 	private User sender;
 
 	/**
+	 * 
+	 */
+	public Message() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
 	 * @return the content
 	 */
 	public String getContent() {

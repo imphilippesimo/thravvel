@@ -32,6 +32,14 @@ public class Travel extends BaseClass {
 	private int nbChairs;
 	private int remainingChairs;
 
+	/**
+	 * 
+	 */
+	public Travel() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
