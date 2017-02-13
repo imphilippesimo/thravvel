@@ -9,8 +9,8 @@
 	<description>Thravvel core functionalities</description>
 
 	<properties>
-<!-- 		<org.springframework.version>4.0.2.RELEASE</org.springframework.version> -->
-		 <org.springframework.version>4.2.5.RELEASE</org.springframework.version>
+		<!-- <org.springframework.version>4.0.2.RELEASE</org.springframework.version> -->
+		<org.springframework.version>4.2.5.RELEASE</org.springframework.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -24,17 +24,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.douwe.generic</groupId>
-			<artifactId>generic-dao</artifactId>
-			<version>1.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.persistence</groupId>
-					<artifactId>persistence-api</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -85,6 +74,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.32</version>
 
+		</dependency>
+		
+<!-- Utilities -->
+		<dependency>
+			<groupId>jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 	</dependencies>
