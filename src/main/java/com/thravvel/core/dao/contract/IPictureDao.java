@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Picture;
 
 /**
  *
  * @author fd
  */
-public interface IPictureDao extends IDao<Picture, Long> {
+@Repository
+public interface IPictureDao extends IGenericDao<Picture> {
 
 }

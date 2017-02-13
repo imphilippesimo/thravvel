@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Rating;
 
 /**
  *
  * @author fd
  */
-public interface IRatingDao extends IDao<Rating, Long> {
+@Repository
+public interface IRatingDao extends IGenericDao<Rating> {
 
 }

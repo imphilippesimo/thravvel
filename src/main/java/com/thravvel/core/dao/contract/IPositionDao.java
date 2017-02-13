@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Position;
 
 /**
  *
  * @author fd
  */
-public interface IPositionDao extends IDao<Position, Long> {
+@Repository
+public interface IPositionDao extends IGenericDao<Position> {
 
 }

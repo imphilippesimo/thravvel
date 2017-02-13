@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Chat;
 
 /**
  *
  * @author fd
  */
-public interface IChatDao extends IDao<Chat, Long> {
+@Repository
+public interface IChatDao extends IGenericDao<Chat> {
 
 }

@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Travel;
 
 /**
  *
  * @author fd
  */
-public interface ITravelDao extends IDao<Travel, Long> {
+@Repository
+public interface ITravelDao extends IGenericDao<Travel> {
 
 }

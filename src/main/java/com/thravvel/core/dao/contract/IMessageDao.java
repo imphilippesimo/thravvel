@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.Message;
 
 /**
  *
  * @author fd
  */
-public interface IMessageDao extends IDao<Message, Long> {
+@Repository
+public interface IMessageDao extends IGenericDao<Message> {
 
 }

@@ -5,13 +5,16 @@
  */
 package com.thravvel.core.dao.contract;
 
-import com.douwe.generic.dao.IDao;
+import org.springframework.stereotype.Repository;
+
+import com.thravvel.core.dao.IGenericDao;
 import com.thravvel.core.entities.GeneralComment;
 
 /**
  *
  * @author fd
  */
-public interface IGeneralCommentDao extends IDao<GeneralComment, Long> {
+@Repository
+public interface IGeneralCommentDao extends IGenericDao<GeneralComment> {
 
 }
