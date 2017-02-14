@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+
+	<!-- THRAVVEL CORE SERVICE LAYER ERROR MESSAGES -->
+
+
+	<!-- Agency Service error messages -->
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-001"
+		value="THRAVVELCOREAGENCYSERVICEERROR-001 - An error occurred while getting agencies matching a keyword" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-002"
+		value="THRAVVELCOREAGENCYSERVICEERROR-002 - An error occurred while saving agency {0}" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-003"
+		value="THRAVVELCOREAGENCYSERVICEERROR-003 - An error occurred while getting agency by its id" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-004"
+		value="THRAVVELCOREAGENCYSERVICEERROR-004 - An error occurred while trying to delete agency {0}" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-005"
+		value="THRAVVELCOREAGENCYSERVICEERROR-005 - An error occurred while trying to delete an entity by its id" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-006"
+		value="THRAVVELCOREAGENCYSERVICEERROR-006 - An error occurred while trying to update agency {0}" />
+	<error key="THRAVVELCOREAGENCYSERVICEERROR-007"
+		value="THRAVVELCOREAGENCYSERVICEERROR-007 - An error occurred while getting all agencies " />
+
+
+</messages>

@@ -14,10 +14,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.dao.contract.IAgencyDao;
-import com.thravvel.core.entities.Agency;
-import com.thravvel.core.entities.Station;
-import com.thravvel.core.persistence.PersistenceConfig;
+import com.thravvel.core.data.entities.Agency;
+import com.thravvel.core.data.entities.Station;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -25,7 +25,7 @@ import com.thravvel.core.persistence.PersistenceConfig;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { PersistenceConfig.class }, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = { SpringGlobalConfig.class }, loader = AnnotationConfigContextLoader.class)
 
 public class DaoTest {
 
@@ -40,7 +40,7 @@ public class DaoTest {
 
 	@Test
 	public void createAgencyWithoutError() {
-		Agency agency = new Agency("Danay", new ArrayList<Station>());
+		Agency agency = new Agency("Touristique", new ArrayList<Station>());
 		agencyDao.save(agency);
 		assertNotNull(agencyDao.findOne(agency.getId()));
 

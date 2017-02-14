@@ -1,4 +1,4 @@
-package com.thravvel.core.persistence;
+package com.thravvel.core.data;
 
 import java.util.Properties;
 
@@ -11,26 +11,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableTransactionManagement
+// @EnableTransactionManagement
 @PropertySource({ "classpath:persistence/persistence.properties" })
 @ComponentScan({ "com.thravvel.core.dao", "com.thravvel.core.service", "com.thravvel.core.test" })
-@EnableJpaRepositories(basePackages = "com.thravvel.core.dao")
-public class PersistenceConfig {
+// @EnableJpaRepositories(basePackages = "com.thravvel.core.dao")
+public class SpringPersistenceConfig {
 
 	@Autowired
 	private Environment env;
 
-	public PersistenceConfig() {
+	public SpringPersistenceConfig() {
 		super();
 	}
 
@@ -38,7 +36,7 @@ public class PersistenceConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(restDataSource());
-		em.setPackagesToScan(new String[] { "com.thravvel.core.entities" });
+		em.setPackagesToScan(new String[] { "com.thravvel.core.data.entities" });
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(hibernateProperties());

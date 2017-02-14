@@ -8,7 +8,7 @@ package com.thravvel.core.dao.contract;
 import org.springframework.stereotype.Repository;
 
 import com.thravvel.core.dao.IGenericDao;
-import com.thravvel.core.entities.User;
+import com.thravvel.core.data.entities.User;
 
 /**
  *

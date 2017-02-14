@@ -32,4 +32,7 @@ public class ThravvelCoreConstants {
 	public static final String WOW = "wow";
 	public static final String SAD = "sad";
 
+	// path for thravvel global config file
+	public static final String THRAVVEL_GLOBAL_CONFIG_FILE = "thravvel-global.properties";
+
 }

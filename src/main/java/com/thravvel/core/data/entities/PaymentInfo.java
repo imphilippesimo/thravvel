@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thravvel.core.entities;
+package com.thravvel.core.data.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
