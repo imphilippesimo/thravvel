@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.data.entities.Agency;
@@ -27,7 +28,8 @@ import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { SpringGlobalConfig.class }, loader = AnnotationConfigContextLoader.class)
+@WebAppConfiguration
+@ContextConfiguration(classes = { SpringGlobalConfig.class }, loader = AnnotationConfigWebContextLoader.class)
 public class ServiceTest {
 
 	private static Logger logger = Logger.getLogger(ServiceTest.class);
