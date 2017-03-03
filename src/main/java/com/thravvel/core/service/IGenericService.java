@@ -38,14 +38,14 @@ public interface IGenericService<T extends BaseClass> {
 	void deleteEntity(T entity) throws ThravvelCoreException;
 
 	/**
-	 * @param id
+         * @param entityId
 	 * @throws ThravvelCoreException
 	 */
 	void deleteById(Long entityId) throws ThravvelCoreException;
 
 	/**
 	 * @param entity
-	 * @param personDbId
+         * @return 
 	 * @throws ThravvelCoreException
 	 */
 	T updateEntity(T entity) throws ThravvelCoreException;
