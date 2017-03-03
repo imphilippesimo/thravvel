@@ -9,10 +9,10 @@
 	<description>Thravvel core functionalities</description>
 
 	<properties>
-		<!-- <org.springframework.version>4.0.2.RELEASE</org.springframework.version> -->
-		<org.springframework.version>4.2.5.RELEASE</org.springframework.version>
-	 <maven.compiler.source>1.8</maven.compiler.source>
-	 <maven.compiler.target>1.8</maven.compiler.target>
+		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+<!-- <org.springframework.version>4.2.5.RELEASE</org.springframework.version> -->
+		<jackson.version>2.4.0</jackson.version>
+		<jaxb-api.version>2.2.11</jaxb-api.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -36,12 +36,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
-
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
-			<version>1.6.0.RELEASE</version>
+			<version>1.8.0.RELEASE</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
 		<dependency>
@@ -50,7 +49,7 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 
-		<!-- Persistence -->
+		<!-- JPA Provider -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -75,7 +74,6 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.32</version>
-
 		</dependency>
 		
         <!-- Logging -->
@@ -88,20 +86,35 @@
 
 		<!-- Utilities -->
 		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb-api.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>jdom</groupId>
 			<artifactId>jdom</artifactId>
 			<version>1.0</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/jaxen/jaxen -->
 		<dependency>
 			<groupId>jaxen</groupId>
 			<artifactId>jaxen</artifactId>
 			<version>1.1.1</version>
-	<!-- <scope>test</scope> -->
 		</dependency>
 
 	</dependencies>
 	<packaging>war</packaging>
+	<build>
+		<finalName>thravvel-core</finalName>
+	</build>
 
 </project>

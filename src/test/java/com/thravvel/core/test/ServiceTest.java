@@ -39,8 +39,9 @@ public class ServiceTest {
 	@Before
 	public void doBeforeTests() throws ThravvelCoreException {
 		agencyServiceShouldNotBeNull();
-		findAgencyByKeywordWithoutError();
 		createAgencyWithoutErrors();
+		findAgencyByKeywordWithoutError();
+
 	}
 
 	public void agencyServiceShouldNotBeNull() {

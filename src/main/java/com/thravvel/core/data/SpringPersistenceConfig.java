@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -19,10 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-// @EnableTransactionManagement
 @PropertySource({ "classpath:persistence/persistence.properties" })
-@ComponentScan({ "com.thravvel.core.dao", "com.thravvel.core.service", "com.thravvel.core.test" })
-// @EnableJpaRepositories(basePackages = "com.thravvel.core.dao")
 public class SpringPersistenceConfig {
 
 	@Autowired

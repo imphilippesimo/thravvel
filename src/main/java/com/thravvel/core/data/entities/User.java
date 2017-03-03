@@ -3,7 +3,8 @@
  */
 package com.thravvel.core.data.entities;
 
-import java.util.ArrayList;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +12,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import com.thravvel.core.utils.ThravvelCoreConstants;
 
@@ -64,8 +64,41 @@ public class User extends BaseClass {
 
 	private String phoneNumber;
 
-	@OneToOne
-	@JoinColumn(name = "paymentInfoId", unique = true, nullable = true)
+	private boolean confirmed;
+
+	private String confirmationCode;
+
+	/**
+	 * @return the confirmed
+	 */
+	public boolean isConfirmed() {
+		return confirmed;
+	}
+
+	/**
+	 * @param confirmed
+	 *            the confirmed to set
+	 */
+	public void setConfirmed(boolean confirmed) {
+		this.confirmed = confirmed;
+	}
+
+	/**
+	 * @return the confirmationCode
+	 */
+	public String getConfirmationCode() {
+		return confirmationCode;
+	}
+
+	/**
+	 * @param confirmationCode
+	 *            the confirmationCode to set
+	 */
+	public void setConfirmationCode(String confirmationCode) {
+		this.confirmationCode = confirmationCode;
+	}
+
+	@ManyToOne
 	private PaymentInfo paymentInfo;
 
 	private String userName;
@@ -82,39 +115,22 @@ public class User extends BaseClass {
 
 	private String role;
 
-	@OneToOne
-	@JoinColumn(name = "positionId", unique = true, nullable = false)
+	@ManyToOne
 	private Position position;
 
-	public User(String lastName, String firstName, String birthDate, String birthPlace, char gender,
-			String countryOfOrigin, String regionOfOrigin, String livingCountry, String livingRegion, String livingCity,
-			String emailAdress, String adress, String poBox, String phoneNumber, PaymentInfo paymentInfo,
-			String userName, String password, Picture picture, Position position, Integer marks, String role) {
+	public User(String phoneNumber, String password, char gender) {
 		super();
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.birthDate = birthDate;
-		this.birthPlace = birthPlace;
+		this.confirmed = Boolean.FALSE;
 		this.gender = gender;
-		this.countryOfOrigin = countryOfOrigin;
-		this.regionOfOrigin = regionOfOrigin;
-		this.livingCountry = livingCountry;
-		this.livingRegion = livingRegion;
-		this.livingCity = livingCity;
-		this.emailAdress = emailAdress;
-		this.adress = adress;
-		this.poBox = poBox;
 		this.phoneNumber = phoneNumber;
-		this.paymentInfo = paymentInfo;
-		this.userName = userName;
 		this.password = password;
 		this.creationDate = new Date();
-		picture.setCurrent(Boolean.TRUE);
-		this.pictures = new ArrayList<Picture>();
-		pictures.add(picture);
-		this.marks = marks == null ? ThravvelCoreConstants.INITIAL_USER_MARKS : marks;
-		this.role = role == null ? ThravvelCoreConstants.USER_ROLE : role;
-		this.position = position;
+		this.marks = ThravvelCoreConstants.INITIAL_USER_MARKS;
+		this.role = ThravvelCoreConstants.USER_ROLE;
+		// generate a random code
+		SecureRandom random = new SecureRandom();
+		confirmationCode = new BigInteger(25, random).toString(32);
+
 	}
 
 	/**
