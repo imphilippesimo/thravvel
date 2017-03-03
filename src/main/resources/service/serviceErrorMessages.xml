@@ -19,6 +19,14 @@
 		value="THRAVVELCOREAGENCYSERVICEERROR-006 - An error occurred while trying to update agency {0}" />
 	<error key="THRAVVELCOREAGENCYSERVICEERROR-007"
 		value="THRAVVELCOREAGENCYSERVICEERROR-007 - An error occurred while getting all agencies " />
+		
+<!-- 		User Service error messages  -->
+<error key="THRAVVELCOREUSERSERVICEERROR-001"
+		value="THRAVVELCOREUSERSERVICEERROR-001 - An error occurred during authentication process of {0}" />
+		<error key="THRAVVELCOREUSERSERVICEERROR-002"
+		value="THRAVVELCOREUSERSERVICEERROR-002 - An error occurred while sending the sms to {0}" />
+		
+
 
 
 </messages>
