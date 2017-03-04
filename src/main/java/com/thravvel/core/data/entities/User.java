@@ -128,6 +128,9 @@ public class User extends BaseClass {
 		this.marks = ThravvelCoreConstants.INITIAL_USER_MARKS;
 		this.role = ThravvelCoreConstants.USER_ROLE;
 		// generate a random code
+
+		// TODO: set secured random one time for all, due to the huge amount
+		// of resource used for its initialization
 		SecureRandom random = new SecureRandom();
 		confirmationCode = new BigInteger(25, random).toString(32);
 
