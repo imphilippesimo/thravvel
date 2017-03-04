@@ -21,6 +21,7 @@ import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.service.contract.IAgencyService;
+import com.thravvel.core.service.contract.IUserService;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
 
 /**
@@ -38,18 +39,33 @@ public class ServiceTest {
 	@Autowired
 	IAgencyService agencyService;
 
+	@Autowired
+	IUserService userService;
+
 	@Before
 	public void doBeforeTests() throws ThravvelCoreException {
-		agencyServiceShouldNotBeNull();
-		createAgencyWithoutErrors();
-		findAgencyByKeywordWithoutError();
+		// agencyServiceShouldNotBeNull();
+		// createAgencyWithoutErrors();
+		// findAgencyByKeywordWithoutError();
 
 	}
 
+	// @Test
 	public void agencyServiceShouldNotBeNull() {
 
 		assertNotNull(agencyService);
 
+	}
+
+	@Test
+	public void connectUser() {
+		try {
+			userService.connect(String.valueOf(6939), String.valueOf(693900));
+		} catch (ThravvelCoreException tce) {
+			logger.error(tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
+		} catch (Exception e) {
+			logger.error("Error occured", e);
+		}
 	}
 
 	public void createAgencyWithoutErrors() throws ThravvelCoreException {
@@ -70,7 +86,7 @@ public class ServiceTest {
 		}
 	}
 
-	@Test
+	// @Test
 	public void updateAgencyWithoutErrors() throws ThravvelCoreException {
 		agency.setName("TCCE");
 		try {
