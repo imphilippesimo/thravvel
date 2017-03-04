@@ -4,10 +4,8 @@
 package com.thravvel.core.test;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -63,14 +61,19 @@ public class DaoTest {
 	public void createUsersWithoutError() {
 
 		User user;
-		for (int j = 693900; j < 694000; j++) {
-			user = new User(String.valueOf(j), String.valueOf(j) + "pass", ThravvelCoreConstants.FEMALE);
-			userDao.save(user);
+		// for (int j = 693900; j < 694000; j++) {
+		// user = new User(String.valueOf(j), String.valueOf(j) + "pass",
+		// ThravvelCoreConstants.FEMALE);
+		// userDao.save(user);
+		//
+		// }
 
-		}
-		List<User> users = userDao.findAll();
+		// List<User> users = userDao.findAll();
+		user = userDao.save(new User("99999", "99999pass", ThravvelCoreConstants.FEMALE));
+		logger.debug(user.getConfirmationCode());
 
-		assertTrue(!users.isEmpty());
+		// assertTrue(!users.isEmpty());
+		assertNotNull(user);
 
 	}
 }
