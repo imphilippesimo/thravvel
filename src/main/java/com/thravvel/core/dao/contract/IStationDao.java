@@ -17,15 +17,7 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface IStationDao extends IGenericDao<Station> {
 
-    @Query("select * from Station s join Position p on s.position_id=p.id\n" +
-"join  (SELECT *,\n" +
-"    ( 6371 * acos(\n" +
-"    cos(radians(:lat)) * cos(radians(latitude)) * cos(radians(latitude) - radians(:long)) +\n" +
-"    sin(radians(:lat)) * sin(radians(latitude))\n" +
-"    ) ) AS distance\n" +
-"FROM `Position`\n" +
-"WHERE latitude < degrees( asin( sin(radians(:lat)) * cos(:dist / 6371) +\n" +
-"        cos(radians(:lat)) * sin(:dist / 6371) * cos(radians(0)) ))\n" +
+    @Query("select s from Station s join Position p on s.position_id=p.id join  (SELECT *,( 6371 * acos( cos(radians(:lat)) * cos(radians(latitude)) * cos(radians(latitude) - radians(:long)) + sin(radians(:lat)) * sin(radians(latitude)) ) ) AS distance FROM Position WHERE latitude < degrees( asin( sin(radians(:lat)) * cos(:dist / 6371) cos(radians(:lat)) * sin(:dist / 6371) * cos(radians(0)) ))\n" +
 "  AND latitude > degrees( asin( sin(radians(:lat)) * cos(:dist / 6371) +\n" +
 "        cos(radians(:lat)) * sin(:dist / 6371) * cos(radians(180)) ))\n" +
 "  AND longitutde < :long - degrees( atan2(sin(radians(90)) * sin(radians(:dist / 6371)) * cos(radians(:lat)),\n" +
