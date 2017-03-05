@@ -16,12 +16,14 @@ import javax.persistence.OneToMany;
 
 import com.thravvel.core.utils.SharedResourcesProvider;
 import com.thravvel.core.utils.ThravvelCoreConstants;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "User")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
 public class User extends BaseClass {

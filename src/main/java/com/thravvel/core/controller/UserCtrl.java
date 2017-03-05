@@ -111,7 +111,7 @@ public class UserCtrl {
 			user = (User) session.getAttribute(ThravvelCoreConstants.SESSION_USER);
 			if (confirmationCode.equals(user.getConfirmationCode())) {
 				user.setConfirmed(Boolean.TRUE);
-				userService.updateEntity(user);
+				userService.createOrUpdateEntity(user);
 				resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.TRUE);
 				resultMap.put(ThravvelCoreConstants.JSON_PAYLOAD_KEY, user);
 			} else {

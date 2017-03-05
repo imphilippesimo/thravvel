@@ -8,12 +8,14 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "Chat")
 public class Chat extends BaseClass {
 	@OneToMany
 	private List<User> chaters;

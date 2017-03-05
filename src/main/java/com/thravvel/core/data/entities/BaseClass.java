@@ -3,6 +3,8 @@
  */
 package com.thravvel.core.data.entities;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +15,7 @@ import javax.persistence.MappedSuperclass;
  *
  */
 @MappedSuperclass
-public abstract class BaseClass {
+public abstract class BaseClass implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)

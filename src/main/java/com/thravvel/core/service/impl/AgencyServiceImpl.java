@@ -42,11 +42,11 @@ public class AgencyServiceImpl extends CommonService implements IAgencyService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.thravvel.core.service.IGenericService#createEntity(com.thravvel.core.
+	 * com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.thravvel.core.
 	 * entities.BaseClass)
 	 */
 	@Override
-	public Agency createEntity(Agency entity) throws ThravvelCoreException {
+	public Agency createOrUpdateEntity(Agency entity) throws ThravvelCoreException {
 		try {
 			return agencyDao.save(entity);
 		} catch (Exception e) {
@@ -112,27 +112,6 @@ public class AgencyServiceImpl extends CommonService implements IAgencyService {
 		} catch (Exception e) {
 			ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
 					"THRAVVELCOREAGENCYSERVICEERROR-005");
-			logger.error(coreException.getMessage(), e);
-			throw coreException;
-		}
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.thravvel.core.service.IGenericService#updateEntity(com.thravvel.core.
-	 * entities.BaseClass)
-	 */
-	@Override
-	public Agency updateEntity(Agency entity) throws ThravvelCoreException {
-		try {
-			return agencyDao.save(entity);
-
-		} catch (Exception e) {
-			ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
-					"THRAVVELCOREAGENCYSERVICEERROR-006", new Object[] { entity.getName() });
 			logger.error(coreException.getMessage(), e);
 			throw coreException;
 		}

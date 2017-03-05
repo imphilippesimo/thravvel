@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -16,6 +17,7 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
+@Table(name = "Comment")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Comment extends GeneralComment {
 

@@ -5,6 +5,7 @@ import com.thravvel.core.data.entities.projection.AgencyStation;
 import com.thravvel.core.data.entities.projection.Coordinates;
 import com.thravvel.core.service.IGenericService;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
+import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 

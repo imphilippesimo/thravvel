@@ -104,11 +104,11 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * com.thravvel.core.service.IGenericService#createEntity(com.thravvel.core.
+	 * com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.thravvel.core.
 	 * data.entities.BaseClass)
 	 */
 	@Override
-	public User createEntity(User entity) throws ThravvelCoreException {
+	public User createOrUpdateEntity(User entity) throws ThravvelCoreException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -152,19 +152,6 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.thravvel.core.service.IGenericService#updateEntity(com.thravvel.core.
-	 * data.entities.BaseClass)
-	 */
-	@Override
-	public User updateEntity(User entity) throws ThravvelCoreException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
 	 * @see com.thravvel.core.service.IGenericService#getAllEntities(int, int)
 	 */
 	@Override
@@ -181,7 +168,7 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	 * int, int)
 	 */
 	@Override
-	public Page<Agency> findEntities(String keyWord, int page, int size) throws ThravvelCoreException {
+	public Page<User> findEntities(String keyWord, int page, int size) throws ThravvelCoreException {
 		// TODO Auto-generated method stub
 		return null;
 	}

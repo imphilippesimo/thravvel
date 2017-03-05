@@ -4,11 +4,13 @@
 package com.thravvel.core.data.entities;
 
 import java.util.List;
+import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -16,7 +18,9 @@ import javax.persistence.OneToMany;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "Agency")
 public class Agency extends BaseClass {
+        @Column(name = "name")
 	private String name;
 	@OneToMany(mappedBy = "agency")
 	private List<Station> stations;

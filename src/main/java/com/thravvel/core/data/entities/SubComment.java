@@ -10,6 +10,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -17,6 +18,7 @@ import javax.persistence.OneToOne;
  */
 
 @Entity
+@Table(name = "SubComment")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class SubComment extends GeneralComment {
 

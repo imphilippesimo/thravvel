@@ -103,7 +103,7 @@ public class AgencyCtrl {
 	public Map<String, Object> saveAgency(@RequestBody Agency agency) {
 		resultMap = new HashMap<String, Object>();
 		try {
-			Agency payload = agencyService.createEntity(agency);
+			Agency payload = agencyService.createOrUpdateEntity(agency);
 			resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.TRUE);
 			resultMap.put(ThravvelCoreConstants.JSON_PAYLOAD_KEY, payload);
 		} catch (ThravvelCoreException tce) {
@@ -125,7 +125,7 @@ public class AgencyCtrl {
 	public Map<String, Object> updateAgency(@RequestBody Agency agency) {
 		resultMap = new HashMap<String, Object>();
 		try {
-			Agency payload = agencyService.updateEntity(agency);
+			Agency payload = agencyService.createOrUpdateEntity(agency);
 			resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.TRUE);
 			resultMap.put(ThravvelCoreConstants.JSON_PAYLOAD_KEY, payload);
 		} catch (ThravvelCoreException tce) {

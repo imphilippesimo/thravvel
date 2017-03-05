@@ -11,18 +11,20 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "Station")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Station extends BaseClass {
 	@ManyToOne
 	private Agency agency;
 
-	private String Area;
+	private String area;
 	@ManyToOne
 	private Position position;
 
@@ -56,7 +58,7 @@ public class Station extends BaseClass {
 			List<Travel> arrivals) {
 		super();
 		this.agency = agency;
-		Area = area;
+		this.area = area;
 		this.position = position;
 		this.pictures = pictures;
 		this.departures = departures;
@@ -70,7 +72,7 @@ public class Station extends BaseClass {
 	 */
 	@Override
 	public String toString() {
-		return "Station [agency=" + agency + ", Area=" + Area + ", position=" + position + ", pictures=" + pictures
+		return "Station [agency=" + agency + ", Area=" + area + ", position=" + position + ", pictures=" + pictures
 				+ ", departures=" + departures + ", arrivals=" + arrivals + "]";
 	}
 
@@ -93,7 +95,7 @@ public class Station extends BaseClass {
 	 * @return the area
 	 */
 	public String getArea() {
-		return Area;
+		return area;
 	}
 
 	/**
@@ -101,7 +103,7 @@ public class Station extends BaseClass {
 	 *            the area to set
 	 */
 	public void setArea(String area) {
-		Area = area;
+		this.area = area;
 	}
 
 	/**

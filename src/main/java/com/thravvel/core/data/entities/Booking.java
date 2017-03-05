@@ -3,6 +3,7 @@
  */
 package com.thravvel.core.data.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -18,12 +21,15 @@ import javax.persistence.OneToOne;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "Booking")
 public class Booking extends BaseClass {
 	@OneToOne
 	@JoinColumn(name = "userId", unique = true, nullable = false)
 	private User booker;
 	@ManyToOne
 	private Travel travel;
+        
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date date;
 	private Boolean confirmed;
 

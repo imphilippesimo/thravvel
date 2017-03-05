@@ -8,12 +8,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "Rating")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Rating extends BaseClass {
 

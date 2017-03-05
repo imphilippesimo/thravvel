@@ -31,6 +31,22 @@
 		value="THRAVVELCOREUSERSERVICEERROR-004 - An error occurred when fetching user with number {0}" />
 
 
-
+        <!-- Agency Service error messages -->
+	<error key="THRAVVELCORESTATIONSERVICEERROR-001"
+		value="THRAVVELCORESTATIONSERVICEERROR-001 - An error occurred while getting stations matching a keyword" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-002"
+		value="THRAVVELCORESTATIONSERVICEERROR-002 - An error occurred while saving station {0}" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-003"
+		value="THRAVVELCORESTATIONSERVICEERROR-003 - An error occurred while getting station by its id" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-004"
+		value="THRAVVELCORESTATIONSERVICEERROR-004 - An error occurred while trying to delete station {0}" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-005"
+		value="THRAVVELCORESTATIONSERVICEERROR-005 - An error occurred while trying to delete an entity by its id" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-006"
+		value="THRAVVELCORESTATIONSERVICEERROR-006 - An error occurred while trying to update station {0}" />
+	<error key="THRAVVELCORESTATIONSERVICEERROR-007"
+		value="THRAVVELCORESTATIONSERVICEERROR-007 - An error occurred while getting all station " />
+        <error key="THRAVVELCORESTATIONSERVICEERROR-008"
+		value="THRAVVELCORESTATIONSERVICEERROR-008 - An error occurred while getting the nearest stations around the user " />
 
 </messages>

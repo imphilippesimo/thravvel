@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StationCtrl {
 
-    private static Logger logger = Logger.getLogger(AgencyCtrl.class);
+    private static Logger logger = Logger.getLogger(StationCtrl.class);
     private Map<String, Object> resultMap;
 
     @Autowired
     IStationService stationService;
 
     @RequestMapping(value = "/stations/nearest", method = RequestMethod.GET)
-    public Map<String, Object> saveAgency(@RequestBody Coordinates coordinates) {
+    public Map<String, Object> findNearest(@RequestBody Coordinates coordinates) {
         resultMap = new HashMap<String, Object>();
         try {
             Page<AgencyStation> result = stationService.findNearest(coordinates);

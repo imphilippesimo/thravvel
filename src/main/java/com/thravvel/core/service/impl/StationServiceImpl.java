@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,64 +25,114 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class StationServiceImpl extends CommonService implements IStationService {
-    
+
     private StationServiceImpl() {
 
-	}
+    }
 
-	private static Logger logger = Logger.getLogger(StationServiceImpl.class);
+    private static final Logger logger = Logger.getLogger(StationServiceImpl.class);
 
-	@Autowired
-	       IStationDao stationDao;
+    @Autowired
+    IStationDao stationDao;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5312654627637510804L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 5312654627637510804L;
 
-    public Station createEntity(Station entity) throws ThravvelCoreException {
-        return stationDao.save(entity);
+    
+    public Station createOrUpdateEntity(Station entity) throws ThravvelCoreException {
+        try {
+            return stationDao.save(entity);
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-002", new Object[]{entity.getArea()});
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+        }
     }
 
     public Station getEntityById(Long entityId) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return stationDao.findOne(entityId);
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-003");
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+        }
     }
 
     public void deleteEntity(Station entity) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            stationDao.delete(entity);
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-004", new Object[]{entity.getId()});
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+        }
     }
 
     public void deleteById(Long entityId) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Station updateEntity(Station entity) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            Station station = getEntityById(entityId);
+            stationDao.delete(station);
+        } catch (ThravvelCoreException tce) {
+            throw tce;
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-005");
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+        }
     }
 
     public Page<Station> getAllEntities(int page, int size) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            return stationDao.findAll(new PageRequest(page, size));
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-007");
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+
+        }
     }
 
-    public Page<Agency> findEntities(String keyWord, int page, int size) throws ThravvelCoreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Page<Station> findEntities(String keyWord, int page, int size) throws ThravvelCoreException {
+        try {
+            return stationDao.findEntity("%" + keyWord + "%", new PageRequest(page, size));
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-001");
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
+
+        }
     }
 
     public Page<AgencyStation> findNearest(Coordinates coordinates) throws ThravvelCoreException {
-        Page<Station> stations = stationDao.findEntity(coordinates.getLatitude(), coordinates.getLongitude(), coordinates.getLimite(), coordinates.getDistance(), null);
-        List<AgencyStation> agencies = new ArrayList<AgencyStation>();
-        for (Station station : stations) {
-            AgencyStation a = new AgencyStation();
-            a.setAgencyId(station.getAgency().getId());
-            a.setLatitude(station.getPosition().getLatitude());
-            a.setLongitude(station.getPosition().getLongitutde());
-            a.setName(station.getAgency().getName());
-            a.setStationId(station.getId());
-            agencies.add(a);
+        try {
+            List<Station> stations = stationDao.findNearest(coordinates.getLatitude(), coordinates.getLongitude(), coordinates.getLimite(), coordinates.getDistance());
+            List<AgencyStation> agencies = new ArrayList<AgencyStation>();
+            for (Station station : stations) {
+                AgencyStation a = new AgencyStation();
+                a.setAgencyId(station.getAgency().getId());
+                a.setLatitude(station.getPosition().getLatitude());
+                a.setLongitude(station.getPosition().getLongitutde());
+                a.setName(station.getAgency().getName());
+                a.setStationId(station.getId());
+                agencies.add(a);
+            }
+            return new PageImpl<AgencyStation>(agencies);
+        } catch (Exception e) {
+            ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+                    "THRAVVELCORESTATIONSERVICEERROR-008");
+            logger.error(coreException.getMessage(), e);
+            throw coreException;
         }
-        
-        return new PageImpl<AgencyStation>(agencies);
- 
+
     }
-    
+
 }

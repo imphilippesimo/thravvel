@@ -71,7 +71,7 @@ public class ServiceTest {
 	public void createAgencyWithoutErrors() throws ThravvelCoreException {
 		try {
 			Agency agency = new Agency("toulouse express", new ArrayList<Station>());
-			agencyService.createEntity(agency);
+			agencyService.createOrUpdateEntity(agency);
 		} catch (ThravvelCoreException tce) {
 			throw tce;
 		}
@@ -90,7 +90,7 @@ public class ServiceTest {
 	public void updateAgencyWithoutErrors() throws ThravvelCoreException {
 		agency.setName("TCCE");
 		try {
-			agencyService.updateEntity(agency);
+			agencyService.createOrUpdateEntity(agency);
 		} catch (ThravvelCoreException tce) {
 			throw tce;
 

@@ -8,12 +8,14 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "Position")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Position extends BaseClass {
 

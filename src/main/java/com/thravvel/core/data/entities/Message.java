@@ -11,12 +11,14 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
 @Entity
+@Table(name = "Message")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Message extends BaseClass {
 	@Lob
