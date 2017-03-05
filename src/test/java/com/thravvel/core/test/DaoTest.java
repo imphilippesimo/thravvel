@@ -5,7 +5,6 @@ package com.thravvel.core.test;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
@@ -20,9 +19,9 @@ import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.dao.contract.IAgencyDao;
 import com.thravvel.core.dao.contract.IUserDao;
 import com.thravvel.core.data.entities.Agency;
-import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.utils.ThravvelCoreConstants;
+import org.junit.Ignore;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -49,13 +48,29 @@ public class DaoTest {
 		assertNotNull(agencyDao);
 	}
 
-	// @Test
+        //@Test
+        @Ignore
 	public void createAgencyWithoutError() {
-		Agency agency = new Agency("Touristique", new ArrayList<Station>());
+		Agency agency = new Agency("Touristique");
 		agencyDao.save(agency);
-		assertNotNull(agencyDao.findOne(agency.getId()));
-
+                Agency agency2 = new Agency("Danay");
+		agencyDao.save(agency2);
+                Agency agency3 = new Agency("Wayla");
+		agencyDao.save(agency3);
 	}
+        
+        //@Test
+        @Ignore
+	public void createPositionWithoutError() {
+		Agency agency = new Agency("Touristique");
+		agencyDao.save(agency);
+                Agency agency2 = new Agency("Danay");
+		agencyDao.save(agency2);
+                Agency agency3 = new Agency("Wayla");
+		agencyDao.save(agency3);
+	}
+        
+        
 
 	@Test
 	public void createUsersWithoutError() {

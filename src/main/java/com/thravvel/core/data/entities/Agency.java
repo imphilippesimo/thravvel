@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.thravvel.core.data.entities;
 
@@ -20,67 +20,74 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "Agency")
 public class Agency extends BaseClass {
-        @Column(name = "name")
-	private String name;
-	@OneToMany(mappedBy = "agency")
-	private List<Station> stations;
 
-	/**
-	 * 
-	 */
-	public Agency() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Column(name = "name")
+    private String name;
+    @OneToMany(mappedBy = "agency")
+    private List<Station> stations;
 
-	/**
-	 * @param name
-	 * @param stations
-	 */
-	public Agency(String name, List<Station> stations) {
-		super();
-		this.name = name;
-		this.stations = stations;
-	}
+    /**
+     *
+     */
+    public Agency() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * @param name
+     * @param stations
+     */
+    public Agency(String name, List<Station> stations) {
+        super();
+        this.name = name;
+        this.stations = stations;
+    }
 
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * @param name
+     */
+    public Agency(String name) {
+        super();
+        this.name = name;
+    }
 
-	/**
-	 * @return the stations
-	 */
-	public List<Station> getStations() {
-		return stations;
-	}
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * @param stations
-	 *            the stations to set
-	 */
-	public void setStations(List<Station> stations) {
-		this.stations = stations;
-	}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Agency [name=" + name + ", stations=" + stations + "]";
-	}
+    /**
+     * @return the stations
+     */
+    public List<Station> getStations() {
+        return stations;
+    }
+
+    /**
+     * @param stations the stations to set
+     */
+    public void setStations(List<Station> stations) {
+        this.stations = stations;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Agency [name=" + name + ", stations=" + stations + "]";
+    }
 
 }
