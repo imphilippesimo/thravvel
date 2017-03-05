@@ -4,7 +4,6 @@
 package com.thravvel.core.data.entities;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.thravvel.core.utils.SharedResourcesProvider;
 import com.thravvel.core.utils.ThravvelCoreConstants;
 
 /**
@@ -128,8 +128,11 @@ public class User extends BaseClass {
 		this.marks = ThravvelCoreConstants.INITIAL_USER_MARKS;
 		this.role = ThravvelCoreConstants.USER_ROLE;
 		// generate a random code
-		SecureRandom random = new SecureRandom();
-		confirmationCode = new BigInteger(25, random).toString(32);
+
+		// TODO: set secured random one time for all, due to the huge amount
+		// of resource used for its initialization
+
+		confirmationCode = new BigInteger(25, SharedResourcesProvider.getInstance().getSecureRandom()).toString(32);
 
 	}
 

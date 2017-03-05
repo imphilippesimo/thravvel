@@ -44,4 +44,7 @@ public class ThravvelCoreConstants {
 	// path for thravvel global config file
 	public static final String THRAVVEL_GLOBAL_CONFIG_FILE = "thravvel-global.properties";
 
+	// session variables names
+	public static final String SESSION_USER = "user";
+
 }

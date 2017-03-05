@@ -27,7 +27,7 @@ public class AgencyCtrl {
 	@Autowired
 	IAgencyService agencyService;
 
-	@RequestMapping(value = "/listAgencies", method = RequestMethod.GET)
+	@RequestMapping(value = "/agencies", method = RequestMethod.GET)
 	public Map<String, Object> listAgencies(@RequestParam(defaultValue = "0", value = "page") int page,
 			@RequestParam(defaultValue = "5", value = "size") int size) {
 		resultMap = new HashMap<String, Object>();
@@ -53,7 +53,7 @@ public class AgencyCtrl {
 		return resultMap;
 	}
 
-	@RequestMapping(value = "/findAgencies", method = RequestMethod.GET)
+	@RequestMapping(value = "/agencies/find", method = RequestMethod.GET)
 	public Map<String, Object> findAgencies(@RequestParam(defaultValue = "", value = "keyWord") String kw,
 			@RequestParam(defaultValue = "0", value = "page") int page,
 			@RequestParam(defaultValue = "5", value = "size") int size) {
@@ -77,7 +77,7 @@ public class AgencyCtrl {
 		return resultMap;
 	}
 
-	@RequestMapping(value = "/getAgency/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/agencies/{id}", method = RequestMethod.GET)
 	public Map<String, Object> getAgency(@PathVariable("id") Long id) {
 		resultMap = new HashMap<String, Object>();
 		try {
@@ -99,7 +99,7 @@ public class AgencyCtrl {
 		return resultMap;
 	}
 
-	@RequestMapping(value = "/saveAgency", method = RequestMethod.POST)
+	@RequestMapping(value = "/agencies/save", method = RequestMethod.POST)
 	public Map<String, Object> saveAgency(@RequestBody Agency agency) {
 		resultMap = new HashMap<String, Object>();
 		try {
@@ -121,7 +121,7 @@ public class AgencyCtrl {
 		return resultMap;
 	}
 
-	@RequestMapping(value = "/updateAgency", method = RequestMethod.GET)
+	@RequestMapping(value = "/agencies/update", method = RequestMethod.GET)
 	public Map<String, Object> updateAgency(@RequestBody Agency agency) {
 		resultMap = new HashMap<String, Object>();
 		try {
@@ -143,7 +143,7 @@ public class AgencyCtrl {
 		return resultMap;
 	}
 
-	@RequestMapping(value = "/deleteAgency/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/agencies/delete/{id}", method = RequestMethod.GET)
 	public Map<String, Object> deleteAgency(@PathVariable("id") Long id) {
 		resultMap = new HashMap<String, Object>();
 		try {

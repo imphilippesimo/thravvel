@@ -5,6 +5,8 @@
  */
 package com.thravvel.core.dao.contract;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.thravvel.core.dao.IGenericDao;
@@ -16,5 +18,11 @@ import com.thravvel.core.data.entities.User;
  */
 @Repository
 public interface IUserDao extends IGenericDao<User> {
+
+	/**
+	 * @param phoneNumberAsString
+	 */
+	@Query("select u from User u where phoneNumber = :phoneNumber ")
+	public User getUserByPhoneNumber(@Param("phoneNumber") String phoneNumberAsString);
 
 }
