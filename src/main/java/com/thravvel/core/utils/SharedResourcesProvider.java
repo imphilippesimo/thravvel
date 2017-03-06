@@ -48,8 +48,8 @@ public class SharedResourcesProvider {
 		try {
 			secureRandom = new SecureRandom();
 			frontMessageCtx = new Properties();
-			frontMessageCtx
-					.load(new FileInputStream(new ClassPathResource("controller/frontMessages.properties").getFile()));
+			frontMessageCtx.load(new FileInputStream(
+					new ClassPathResource(ThravvelCoreConstants.CONTROLLER_MESSAGES_PROPERTIES_FILE).getFile()));
 
 		} catch (FileNotFoundException fnfe) {
 			errormsg = "frontMessages.properties: Properties file not found";
