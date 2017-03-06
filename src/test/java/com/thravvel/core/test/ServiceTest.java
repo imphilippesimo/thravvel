@@ -23,6 +23,7 @@ import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.service.contract.IAgencyService;
 import com.thravvel.core.service.contract.IUserService;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
+import org.junit.Ignore;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -57,7 +58,8 @@ public class ServiceTest {
 
 	}
 
-	@Test
+        @Ignore
+	//@Test
 	public void connectUser() {
 		try {
 			userService.connect(String.valueOf(6939), String.valueOf(693900));
@@ -68,6 +70,7 @@ public class ServiceTest {
 		}
 	}
 
+        @Ignore
 	public void createAgencyWithoutErrors() throws ThravvelCoreException {
 		try {
 			Agency agency = new Agency("toulouse express", new ArrayList<Station>());
@@ -77,6 +80,7 @@ public class ServiceTest {
 		}
 	}
 
+        @Ignore
 	public void findAgencyByKeywordWithoutError() throws ThravvelCoreException {
 		try {
 			agency = agencyService.findEntities("tou", 0, 1).getContent().get(0);
@@ -87,6 +91,7 @@ public class ServiceTest {
 	}
 
 	// @Test
+        @Ignore
 	public void updateAgencyWithoutErrors() throws ThravvelCoreException {
 		agency.setName("TCCE");
 		try {

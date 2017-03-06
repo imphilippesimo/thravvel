@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 
 import com.thravvel.core.utils.SharedResourcesProvider;
 import com.thravvel.core.utils.ThravvelCoreConstants;
+import javax.persistence.Embedded;
 import javax.persistence.Table;
 
 /**
@@ -117,7 +118,7 @@ public class User extends BaseClass {
 
 	private String role;
 
-	@ManyToOne
+	@Embedded
 	private Position position;
 
 	public User(String phoneNumber, String password, char gender) {

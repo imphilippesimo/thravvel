@@ -6,7 +6,6 @@ package com.thravvel.core.service;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.BaseClass;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
 
@@ -25,7 +24,7 @@ public interface IGenericService<T extends BaseClass> {
     T createOrUpdateEntity(T entity) throws ThravvelCoreException;
 
     /**
-     * @param id
+     * @param entityId
      * @return
      * @throws ThravvelCoreException
      */

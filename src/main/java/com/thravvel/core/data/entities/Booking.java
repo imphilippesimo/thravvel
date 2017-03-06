@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.thravvel.core.data.entities;
 
@@ -23,106 +23,102 @@ import javax.persistence.Temporal;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "Booking")
 public class Booking extends BaseClass {
-	@OneToOne
-	@JoinColumn(name = "userId", unique = true, nullable = false)
-	private User booker;
-	@ManyToOne
-	private Travel travel;
-        
-        @Temporal(javax.persistence.TemporalType.DATE)
-	private Date date;
-	private Boolean confirmed;
+    @OneToOne
+    @JoinColumn(name = "userId", unique = true, nullable = false)
+    private User booker;
+    @ManyToOne
+    private Travel travel;
 
-	/**
-	 * 
-	 */
-	public Booking() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date date;
+    private Boolean confirmed;
 
-	/**
-	 * @param booker
-	 * @param travel
-	 * @param date
-	 * @param confirmed
-	 */
-	public Booking(User booker, Travel travel, Date date, Boolean confirmed) {
-		super();
-		this.booker = booker;
-		this.travel = travel;
-		this.date = date;
-		this.confirmed = confirmed;
-	}
+    /**
+     *
+     */
+    public Booking() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 * @return the booker
-	 */
-	public User getBooker() {
-		return booker;
-	}
+    /**
+     * @param booker
+     * @param travel
+     * @param date
+     * @param confirmed
+     */
+    public Booking(User booker, Travel travel, Date date, Boolean confirmed) {
+        super();
+        this.booker = booker;
+        this.travel = travel;
+        this.date = date;
+        this.confirmed = confirmed;
+    }
 
-	/**
-	 * @param booker
-	 *            the booker to set
-	 */
-	public void setBooker(User booker) {
-		this.booker = booker;
-	}
+    /**
+     * @return the booker
+     */
+    public User getBooker() {
+        return booker;
+    }
 
-	/**
-	 * @return the travel
-	 */
-	public Travel getTravel() {
-		return travel;
-	}
+    /**
+     * @param booker the booker to set
+     */
+    public void setBooker(User booker) {
+        this.booker = booker;
+    }
 
-	/**
-	 * @param travel
-	 *            the travel to set
-	 */
-	public void setTravel(Travel travel) {
-		this.travel = travel;
-	}
+    /**
+     * @return the travel
+     */
+    public Travel getTravel() {
+        return travel;
+    }
 
-	/**
-	 * @return the date
-	 */
-	public Date getDate() {
-		return date;
-	}
+    /**
+     * @param travel the travel to set
+     */
+    public void setTravel(Travel travel) {
+        this.travel = travel;
+    }
 
-	/**
-	 * @param date
-	 *            the date to set
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    /**
+     * @return the date
+     */
+    public Date getDate() {
+        return date;
+    }
 
-	/**
-	 * @return the confirmed
-	 */
-	public Boolean getConfirmed() {
-		return confirmed;
-	}
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	/**
-	 * @param confirmed
-	 *            the confirmed to set
-	 */
-	public void setConfirmed(Boolean confirmed) {
-		this.confirmed = confirmed;
-	}
+    /**
+     * @return the confirmed
+     */
+    public Boolean getConfirmed() {
+        return confirmed;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Booking [booker=" + booker + ", travel=" + travel + ", date=" + date + ", confirmed=" + confirmed + "]";
-	}
+    /**
+     * @param confirmed the confirmed to set
+     */
+    public void setConfirmed(Boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Booking [booker=" + booker + ", travel=" + travel + ", date=" + date + ", confirmed=" + confirmed + "]";
+    }
 
 }

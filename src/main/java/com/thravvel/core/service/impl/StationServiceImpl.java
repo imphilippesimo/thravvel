@@ -1,7 +1,6 @@
 package com.thravvel.core.service.impl;
 
 import com.thravvel.core.dao.contract.IStationDao;
-import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.data.entities.projection.AgencyStation;
 import com.thravvel.core.data.entities.projection.Coordinates;
@@ -114,7 +113,7 @@ public class StationServiceImpl extends CommonService implements IStationService
 
     public Page<AgencyStation> findNearest(Coordinates coordinates) throws ThravvelCoreException {
         try {
-            List<Station> stations = stationDao.findNearest(coordinates.getLatitude(), coordinates.getLongitude(), coordinates.getLimite(), coordinates.getDistance());
+            List<Station> stations = stationDao.findNearest(coordinates.getLatitude(), coordinates.getLongitude(),coordinates.getDistance(),coordinates.getLimite());
             List<AgencyStation> agencies = new ArrayList<AgencyStation>();
             for (Station station : stations) {
                 AgencyStation a = new AgencyStation();

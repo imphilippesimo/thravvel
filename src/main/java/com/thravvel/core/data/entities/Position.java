@@ -3,24 +3,28 @@
  */
 package com.thravvel.core.data.entities;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
  *
  */
-@Entity
-@Table(name = "Position")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Position extends BaseClass {
+@Embeddable
+public class Position implements Serializable{
 
+        @Column(name = "longitude")
 	private double longitutde;
+        
+        @Column(name = "latitude")
 	private double latitude;
+        
+        @Temporal(TemporalType.DATE)
 	private Date time;
 
 	/**

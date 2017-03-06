@@ -17,14 +17,16 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface IStationDao extends IGenericDao<Station> {
 
-    @Query(value = "select s from Station s join Position p on s.position_id=p.id join  (SELECT *,( 6371 * acos( cos(radians(:lat)) * cos(radians(latitude)) * cos(radians(latitude) - radians(:long)) + sin(radians(:lat)) * sin(radians(latitude)) ) ) AS distance FROM Position WHERE latitude < degrees( asin( sin(radians(:lat)) * cos(:dist / 6371) cos(radians(:lat)) * sin(:dist / 6371) * cos(radians(0)) ))AND latitude > degrees( asin( sin(radians(:lat)) * cos(:dist / 6371) +"
-            + "        cos(radians(:lat)) * sin(:dist / 6371) * cos(radians(180)) ))"
-            + "  AND longitutde < :long - degrees( atan2(sin(radians(90)) * sin(radians(:dist / 6371)) * cos(radians(:lat)),"
-            + "        cos(radians(:dist / 6371)) - sin(radians(:lat)) * sin(radians(:lat))) )"
-            + "  AND longitutde > :long + degrees( atan2(sin(radians(90)) * sin(radians(:dist / 6371)) * cos(radians(:dist)),"
-            + "        cos(radians(:dist / 6371)) - sin(radians(:lat)) * sin(radians(:lat))) )"
-            + " ORDER BY distance LIMIT :range) as temp on temp.id = p.id", nativeQuery = true)
-    List<Station> findNearest(@Param("lat") double latitude, @Param("long") double longitude, @Param("dist") int distance, @Param("range") int range);
+    /**
+     *
+     * @param latitude
+     * @param longitude
+     * @param distance in km
+     * @param range
+     * @return nearest stations
+     */
+    @Query(value = "SELECT *, ( 6371 * acos( cos( radians(:lat) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(:long) ) + sin( radians(:lat) ) * sin( radians( latitude ) ) ) ) AS distance FROM Station HAVING distance < :dist ORDER BY distance LIMIT 0 , :range ;", nativeQuery = true)
+    List<Station> findNearest(@Param("lat") double latitude, @Param("long") double longitude, @Param("dist") double distance, @Param("range") int range);
 
     @Query("select s from Station s where area like :kw")
     Page<Station> findEntity(@Param("kw") String kw, Pageable pageable);

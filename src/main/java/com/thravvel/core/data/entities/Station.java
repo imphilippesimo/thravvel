@@ -6,6 +6,7 @@ package com.thravvel.core.data.entities;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -25,7 +26,8 @@ public class Station extends BaseClass {
 	private Agency agency;
 
 	private String area;
-	@ManyToOne
+        
+	@Embedded
 	private Position position;
 
 	@OneToMany

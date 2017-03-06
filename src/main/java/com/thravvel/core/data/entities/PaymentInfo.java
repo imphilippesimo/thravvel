@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.thravvel.core.data.entities;
 
@@ -17,12 +17,12 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class PaymentInfo extends BaseClass {
 
-	/**
-	 * 
-	 */
-	public PaymentInfo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+     /**
+     *
+     */
+    public PaymentInfo() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 }

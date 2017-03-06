@@ -11,6 +11,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -23,6 +25,9 @@ public class Agency extends BaseClass {
 
     @Column(name = "name")
     private String name;
+    
+    @XmlTransient
+    @Transient
     @OneToMany(mappedBy = "agency")
     private List<Station> stations;
 
@@ -48,7 +53,7 @@ public class Agency extends BaseClass {
      * @param name
      */
     public Agency(String name) {
-        super();
+        
         this.name = name;
     }
 
@@ -87,7 +92,7 @@ public class Agency extends BaseClass {
      */
     @Override
     public String toString() {
-        return "Agency [name=" + name + ", stations=" + stations + "]";
+        return "Agency [name=" + name +  "]";
     }
 
 }
