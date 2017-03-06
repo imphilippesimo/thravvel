@@ -22,7 +22,11 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Message extends BaseClass {
     
-    @Lob
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3364025222277536500L;
+	@Lob
     private String content;
     private Date time;
     @OneToOne

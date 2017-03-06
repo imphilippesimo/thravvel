@@ -17,7 +17,11 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Picture extends BaseClass {
 
-    private boolean current;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6014735378576861148L;
+	private boolean current;
     private String path;
 
     /**

@@ -29,6 +29,11 @@ import javax.persistence.Table;
 
 public class User extends BaseClass {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5664646092801716284L;
+
 	@Column(nullable = true)
 	private String lastName;
 

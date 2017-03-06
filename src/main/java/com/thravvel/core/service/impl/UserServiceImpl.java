@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.thravvel.core.dao.contract.IUserDao;
-import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.service.CommonService;
 import com.thravvel.core.service.contract.IUserService;
@@ -103,9 +102,8 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.thravvel.core.
-	 * data.entities.BaseClass)
+	 * @see com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.
+	 * thravvel.core. data.entities.BaseClass)
 	 */
 	@Override
 	public User createOrUpdateEntity(User entity) throws ThravvelCoreException {

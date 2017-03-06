@@ -19,6 +19,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Rating extends BaseClass {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6201478210335070641L;
 	@OneToOne
 	@JoinColumn(name = "raterUserId", unique = true, nullable = false, updatable = false)
 	private User rater;

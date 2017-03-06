@@ -13,7 +13,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AgencyStation implements Serializable{
     
-    private String name;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8579513615653431903L;
+
+	private String name;
     
     private Long agencyId;
     

@@ -22,6 +22,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class SubComment extends GeneralComment {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1496491526807462494L;
 	@OneToOne
 	@JoinColumn(name = "parentCommentId", unique = true, nullable = false, updatable = false)
 	private Comment parent;

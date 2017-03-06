@@ -23,7 +23,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "Agency")
 public class Agency extends BaseClass {
 
-    @Column(name = "name")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4832640222935879427L;
+
+	@Column(name = "name")
     private String name;
     
     @XmlTransient

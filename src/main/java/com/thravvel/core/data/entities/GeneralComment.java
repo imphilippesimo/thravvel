@@ -24,7 +24,12 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class GeneralComment extends BaseClass {
 
-    @Column
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8074495711005783605L;
+
+	@Column
     @ElementCollection(targetClass = String.class)
     private List<String> reactions;
 

@@ -17,7 +17,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Chat")
 public class Chat extends BaseClass {
-    @OneToMany
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5243103790003578290L;
+	@OneToMany
     private List<User> chaters;
     @OneToMany
     private List<Message> messages;
