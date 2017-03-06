@@ -67,7 +67,7 @@ public class StationCtrl {
 
         } catch (ThravvelCoreException tce) {
             resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.FALSE);
-            resultMap.put(ThravvelCoreConstants.JSON_MESSAGE_KEY,tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
+            resultMap.put(ThravvelCoreConstants.JSON_MESSAGE_KEY, tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
             logger.error(tce);
 
         } catch (Exception e) {
@@ -76,6 +76,26 @@ public class StationCtrl {
             resultMap.put(ThravvelCoreConstants.JSON_MESSAGE_KEY, errorMessage.substring(errorMessage.lastIndexOf('-') + 1));
             logger.error(errorMessage, e);
 
+        }
+        return resultMap;
+    }
+
+    @RequestMapping(value = "/stations/save", method = RequestMethod.POST)
+    public Map<String, Object> saveStation(@RequestBody Station station) {
+        resultMap = new HashMap<String, Object>();
+        try {
+            Station payload = stationService.createOrUpdateEntity(station);
+            resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.TRUE);
+            resultMap.put(ThravvelCoreConstants.JSON_PAYLOAD_KEY, payload);
+        } catch (ThravvelCoreException tce) {
+            resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.FALSE);
+            resultMap.put(ThravvelCoreConstants.JSON_MESSAGE_KEY, tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
+            logger.error(tce);
+        } catch (Exception e) {
+            errorMessage = MessageFormat.format(messageCtx.getProperty("THRAVVELCORESTATIONCTRL-003"), station.getArea());
+            resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.FALSE);
+            resultMap.put(ThravvelCoreConstants.JSON_MESSAGE_KEY, errorMessage.substring(errorMessage.lastIndexOf('-') + 1));
+            logger.error(errorMessage, e);
         }
         return resultMap;
     }
