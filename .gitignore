@@ -11,5 +11,5 @@ target/
 /.netbeans/
 /src/main/webapp/WEB-INF/beans.xml
 /src/main/setup/glassfish-resources.xml
-/src/main/resources/persistence/persistence.properties
+src/main/resources/persistence/persistence.properties
 
