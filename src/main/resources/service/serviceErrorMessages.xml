@@ -29,6 +29,8 @@
 		value="THRAVVELCOREUSERSERVICEERROR-003 - Sorry {0}, your password is wrong!" />
 		<error key="THRAVVELCOREUSERSERVICEERROR-004"
 		value="THRAVVELCOREUSERSERVICEERROR-004 - An error occurred when fetching user with number {0}" />
+		<error key="THRAVVELCOREUSERSERVICEERROR-005"
+		value="THRAVVELCOREUSERSERVICEERROR-005 - A user with number {0} already exist, and you are not that one!" />
 
 
         <!-- Agency Service error messages -->
