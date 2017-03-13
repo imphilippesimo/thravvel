@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,6 +21,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.Station;
+import com.thravvel.core.data.entities.User;
 import com.thravvel.core.service.contract.IAgencyService;
 import com.thravvel.core.service.contract.IUserService;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
@@ -35,6 +37,7 @@ public class ServiceTest {
 
 	private static Logger logger = Logger.getLogger(ServiceTest.class);
 	Agency agency;
+	User user;
 
 	@Autowired
 	IAgencyService agencyService;
@@ -47,6 +50,7 @@ public class ServiceTest {
 		// agencyServiceShouldNotBeNull();
 		// createAgencyWithoutErrors();
 		// findAgencyByKeywordWithoutError();
+		connectUser();
 
 	}
 
@@ -57,11 +61,10 @@ public class ServiceTest {
 
 	}
 
-	@Ignore
 	// @Test
 	public void connectUser() {
 		try {
-			userService.connect(String.valueOf(6939), String.valueOf(693900));
+			user = userService.connect("693905", "693905pass");
 		} catch (ThravvelCoreException tce) {
 			logger.error(tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
 		} catch (Exception e) {
@@ -95,6 +98,20 @@ public class ServiceTest {
 		agency.setName("TCCE");
 		try {
 			agencyService.createOrUpdateEntity(agency);
+		} catch (ThravvelCoreException tce) {
+			throw tce;
+
+		}
+	}
+
+	@Test
+	public void updateUserWithoutErrors() throws ThravvelCoreException {
+
+		try {
+			logger.debug("is user yet confirmed ?: " + user.isConfirmed());
+			user.setConfirmed(true);
+			user = userService.createOrUpdateEntity(user);
+			logger.debug("is user now confirmed ?: " + user.isConfirmed());
 		} catch (ThravvelCoreException tce) {
 			throw tce;
 
