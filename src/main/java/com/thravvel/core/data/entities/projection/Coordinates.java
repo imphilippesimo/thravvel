@@ -11,19 +11,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "coordinates")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Coordinates implements Serializable{
-    
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 6982090132992045283L;
+public class Coordinates implements Serializable {
 
-	private double latitude;
-    
+    /**
+     *
+     */
+    private static final long serialVersionUID = 6982090132992045283L;
+
+    private double latitude;
+
     private double longitude;
-    
+
     private int distance;
-    
+
     private int limite;
 
     public double getLatitude() {
@@ -57,6 +57,5 @@ public class Coordinates implements Serializable{
     public void setLimite(int limite) {
         this.limite = limite;
     }
-    
-    
+
 }

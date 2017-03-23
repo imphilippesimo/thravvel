@@ -11,6 +11,7 @@ import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,7 +37,7 @@ public class StationCtrl {
     IStationService stationService;
 
     @RequestMapping(value = "/stations/nearest", method = RequestMethod.POST)
-    public Map<String, Object> findNearest(@RequestBody Coordinates coordinates) {
+    public Map<String, Object> findNearest(HttpServletRequest request,@RequestBody Coordinates coordinates) {
         resultMap = new HashMap<String, Object>();
         try {
             Page<AgencyStation> result = stationService.findNearest(coordinates);
