@@ -19,15 +19,6 @@ public interface IUserService extends IGenericService<User> {
 	/**
 	 * @param phoneNumberAsString
 	 * @param password
-	 * @param gender
-	 * @return
-	 * @throws ThravvelCoreException
-	 */
-	public User saveUser(String phoneNumberAsString, String password, char gender) throws ThravvelCoreException;
-
-	/**
-	 * @param phoneNumberAsString
-	 * @param password
 	 * @return
 	 */
 	public User connect(String phoneNumberAsString, String password) throws ThravvelCoreException;

@@ -5,7 +5,11 @@ package com.thravvel.core.test;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Date;
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +27,6 @@ import com.thravvel.core.data.entities.Position;
 import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.utils.ThravvelCoreConstants;
-import java.util.Date;
-import java.util.List;
-import org.junit.Ignore;
-import org.springframework.data.domain.Page;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -88,7 +88,7 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency);
         stationDao.save(s);
-        p = new Position(4.055700,9.732973, new Date());
+        p = new Position(4.055700, 9.732973, new Date());
         s = new Station();
         s.setArea("area 2");
         s.setPosition(p);
@@ -107,7 +107,7 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency2);
         stationDao.save(s);
-        p = new Position(3.850808,11.499534, new Date());
+        p = new Position(3.850808, 11.499534, new Date());
         s = new Station();
         s.setArea("area 5");
         s.setPosition(p);
@@ -138,7 +138,7 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency3);
         stationDao.save(s);
-        
+
         p = new Position(3.844253, 11.494435, new Date());
         s = new Station();
         s.setArea("area 10");
@@ -151,26 +151,26 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency4);
         stationDao.save(s);
-        p = new Position(4.064009,9.760496, new Date());
+        p = new Position(4.064009, 9.760496, new Date());
         s = new Station();
         s.setArea("area 12");
         s.setPosition(p);
         s.setAgency(agency4);
         stationDao.save(s);
-        
-        p = new Position(4.060785,9.739658, new Date());
+
+        p = new Position(4.060785, 9.739658, new Date());
         s = new Station();
         s.setArea("area 13");
         s.setPosition(p);
         s.setAgency(agency5);
         stationDao.save(s);
-        p = new Position(3.850808,11.499534, new Date());
+        p = new Position(3.850808, 11.499534, new Date());
         s = new Station();
         s.setArea("area 14");
         s.setPosition(p);
         s.setAgency(agency5);
         stationDao.save(s);
-        p = new Position(4.055700,9.732973, new Date());
+        p = new Position(4.055700, 9.732973, new Date());
         s = new Station();
         s.setArea("area 15");
         s.setPosition(p);
@@ -178,13 +178,13 @@ public class DaoTest {
         stationDao.save(s);
 
     }
-    
+
     //@Test
     @Ignore
     public void nearestStationsWithoutError() {
         System.out.println("TEST");
-        List<Station> stations = stationDao.findNearest(-4.316359, 15.286111,10,4);
-        System.out.println("RESULT SIZE "+ stations.size());
+        List<Station> stations = stationDao.findNearest(-4.316359, 15.286111, 10, 4);
+        System.out.println("RESULT SIZE " + stations.size());
         for (Station station : stations) {
             System.out.println(station);
         }
@@ -201,11 +201,5 @@ public class DaoTest {
             userDao.save(user);
 
         }
-
-		// List<User> users = userDao.findAll();
-        //user = userDao.save(new User("99999", "99999pass", ThravvelCoreConstants.FEMALE));
-        //logger.debug(user.getConfirmationCode());
-		// assertTrue(!users.isEmpty());
-        //assertNotNull(user);
     }
 }

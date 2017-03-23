@@ -3,7 +3,6 @@
  */
 package com.thravvel.core.data.entities;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -23,7 +22,11 @@ import javax.persistence.Temporal;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "Booking")
 public class Booking extends BaseClass {
-    @OneToOne
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -624108018627812021L;
+	@OneToOne
     @JoinColumn(name = "userId", unique = true, nullable = false)
     private User booker;
     @ManyToOne

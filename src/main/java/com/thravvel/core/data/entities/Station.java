@@ -22,6 +22,11 @@ import javax.persistence.Table;
 @Table(name = "Station")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Station extends BaseClass {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8466124567502542455L;
+
 	@ManyToOne
 	private Agency agency;
 

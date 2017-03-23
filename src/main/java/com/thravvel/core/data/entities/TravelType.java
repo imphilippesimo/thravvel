@@ -17,6 +17,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class TravelType extends BaseClass {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2072629413054037372L;
 	private String label;
 	private double price;
 

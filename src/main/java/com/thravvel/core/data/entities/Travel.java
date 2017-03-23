@@ -22,6 +22,10 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Travel extends BaseClass {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 599889754467335414L;
 	@ManyToOne
 	private Station source;
 	@ManyToOne

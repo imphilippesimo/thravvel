@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.thravvel.core.dao.contract.IUserDao;
-import com.thravvel.core.data.entities.Agency;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.service.CommonService;
 import com.thravvel.core.service.contract.IUserService;
@@ -41,19 +40,37 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.thravvel.core.service.contract.IUserService#saveUser(java.lang.
-	 * String, java.lang.String)
+	 * @see com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.
+	 * thravvel.core.data.entities.BaseClass)
 	 */
 	@Override
-	public User saveUser(String phoneNumberAsString, String password, char gender) throws ThravvelCoreException {
+	public User createOrUpdateEntity(User u) throws ThravvelCoreException {
 		try {
-			User user = new User(phoneNumberAsString, password, gender);
-			userDao.save(user);
-			return user;
+			String phoneNumberAsString = u.getPhoneNumber();
+			User existingUser = userDao.getUserByPhoneNumber(phoneNumberAsString);
+			if (existingUser != null) {
+
+				if (existingUser.getPassword().equals(u.getPassword())) {
+					// same password: this is a request for update
+					userDao.save(u);
+					return u;
+				} else {
+					// password provided not the one retrieved: this is a
+					// hijacking attempt, throw exception
+					ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
+							"THRAVVELCOREUSERSERVICEERROR-005", new Object[] { phoneNumberAsString });
+					logger.error(coreException.getMessage());
+					throw coreException;
+				}
+			} else {
+				// new user: register him
+				userDao.save(u);
+				return u;
+			}
 
 		} catch (Exception e) {
 			ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
-					"THRAVVELCOREUSERSERVICEERROR-001", new Object[] { phoneNumberAsString });
+					"THRAVVELCOREUSERSERVICEERROR-001", new Object[] { u.getPhoneNumber() });
 			logger.error(coreException.getMessage(), e);
 			throw coreException;
 		}
@@ -93,24 +110,11 @@ public class UserServiceImpl extends CommonService implements IUserService {
 		} catch (Exception ex) {
 			ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
 					"THRAVVELCOREUSERSERVICEERROR-004", new Object[] { phoneNumberAsString });
-			logger.error(coreException.getMessage());
+			logger.error(coreException.getMessage(), ex);
 			throw coreException;
 
 		}
 
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.thravvel.core.service.IGenericService#createOrUpdateEntity(com.thravvel.core.
-	 * data.entities.BaseClass)
-	 */
-	@Override
-	public User createOrUpdateEntity(User entity) throws ThravvelCoreException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	/*

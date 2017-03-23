@@ -20,7 +20,11 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Comment extends GeneralComment {
 
-    @OneToMany(mappedBy = "parent")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1415463627341217700L;
+	@OneToMany(mappedBy = "parent")
     private List<SubComment> subComments;
 
     /**

@@ -18,6 +18,11 @@ import javax.persistence.Table;
 public class PaymentInfo extends BaseClass {
 
      /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6795215687632130539L;
+
+	/**
      *
      */
     public PaymentInfo() {

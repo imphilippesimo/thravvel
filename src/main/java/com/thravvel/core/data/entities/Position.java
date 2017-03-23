@@ -18,7 +18,12 @@ import javax.persistence.TemporalType;
 @Embeddable
 public class Position implements Serializable{
 
-        @Column(name = "longitude")
+        /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8029348930130206834L;
+
+		@Column(name = "longitude")
 	private double longitutde;
         
         @Column(name = "latitude")
