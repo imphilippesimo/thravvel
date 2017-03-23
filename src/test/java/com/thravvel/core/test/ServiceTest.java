@@ -105,6 +105,7 @@ public class ServiceTest {
 	}
 
 	@Test
+        @Ignore
 	public void updateUserWithoutErrors() throws ThravvelCoreException {
 
 		try {

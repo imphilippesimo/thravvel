@@ -69,8 +69,8 @@ public class DaoTest {
     @Test
     //@Ignore
     public void createSationsWithoutError() {
-        stationDao.deleteAll();
-        agencyDao.deleteAll();
+        //stationDao.deleteAll();
+        //agencyDao.deleteAll();
         Agency agency = new Agency("Touristique");
         agency = agencyDao.save(agency);
         Agency agency2 = new Agency("Danay");

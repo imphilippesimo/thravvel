@@ -35,7 +35,7 @@ public class StationCtrl {
     @Autowired
     IStationService stationService;
 
-    @RequestMapping(value = "/stations/nearest", method = RequestMethod.GET)
+    @RequestMapping(value = "/stations/nearest", method = RequestMethod.POST)
     public Map<String, Object> findNearest(@RequestBody Coordinates coordinates) {
         resultMap = new HashMap<String, Object>();
         try {
