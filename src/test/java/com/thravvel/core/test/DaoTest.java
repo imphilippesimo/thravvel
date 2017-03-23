@@ -66,8 +66,8 @@ public class DaoTest {
         agencyDao.save(agency3);
     }
 
-    //@Test
-    @Ignore
+    @Test
+    //@Ignore
     public void createSationsWithoutError() {
         stationDao.deleteAll();
         agencyDao.deleteAll();
@@ -77,6 +77,10 @@ public class DaoTest {
         agency2 = agencyDao.save(agency2);
         Agency agency3 = new Agency("Wayla");
         agency3 = agencyDao.save(agency3);
+        Agency agency4 = new Agency("General Express");
+        agency4 = agencyDao.save(agency4);
+        Agency agency5 = new Agency("Finnest");
+        agency5 = agencyDao.save(agency5);
 
         Position p = new Position(15.2729196548462, -4.31589698791504, new Date());
         Station s = new Station();
@@ -84,7 +88,7 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency);
         stationDao.save(s);
-        p = new Position(15.3104858398438, -4.30577754974365, new Date());
+        p = new Position(4.055700,9.732973, new Date());
         s = new Station();
         s.setArea("area 2");
         s.setPosition(p);
@@ -103,7 +107,7 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency2);
         stationDao.save(s);
-        p = new Position(15.2937669754028, -4.31869888305664, new Date());
+        p = new Position(3.850808,11.499534, new Date());
         s = new Station();
         s.setArea("area 5");
         s.setPosition(p);
@@ -133,6 +137,44 @@ public class DaoTest {
         s.setArea("area 9");
         s.setPosition(p);
         s.setAgency(agency3);
+        stationDao.save(s);
+        
+        p = new Position(3.844253, 11.494435, new Date());
+        s = new Station();
+        s.setArea("area 10");
+        s.setPosition(p);
+        s.setAgency(agency4);
+        stationDao.save(s);
+        p = new Position(3.857469, 11.503168, new Date());
+        s = new Station();
+        s.setArea("area 11");
+        s.setPosition(p);
+        s.setAgency(agency4);
+        stationDao.save(s);
+        p = new Position(4.064009,9.760496, new Date());
+        s = new Station();
+        s.setArea("area 12");
+        s.setPosition(p);
+        s.setAgency(agency4);
+        stationDao.save(s);
+        
+        p = new Position(4.060785,9.739658, new Date());
+        s = new Station();
+        s.setArea("area 13");
+        s.setPosition(p);
+        s.setAgency(agency5);
+        stationDao.save(s);
+        p = new Position(3.850808,11.499534, new Date());
+        s = new Station();
+        s.setArea("area 14");
+        s.setPosition(p);
+        s.setAgency(agency5);
+        stationDao.save(s);
+        p = new Position(4.055700,9.732973, new Date());
+        s = new Station();
+        s.setArea("area 15");
+        s.setPosition(p);
+        s.setAgency(agency5);
         stationDao.save(s);
 
     }
