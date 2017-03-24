@@ -46,6 +46,10 @@ public class UserCtrl {
 		User payload;
 
 		try {
+
+			// Construct a user because the one made by the jsonConverter use a
+			// default constructor with plenty of null values
+			u = new User(u.getPhoneNumber(), u.getPassword(), u.getGender());
 			payload = userService.createOrUpdateEntity(u);
 
 			resultMap.put(ThravvelCoreConstants.JSON_SUCCESS_KEY, Boolean.TRUE);

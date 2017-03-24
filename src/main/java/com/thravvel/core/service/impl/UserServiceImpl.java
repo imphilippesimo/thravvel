@@ -67,6 +67,8 @@ public class UserServiceImpl extends CommonService implements IUserService {
 				userDao.save(u);
 				return u;
 			}
+		} catch (ThravvelCoreException tce) {
+			throw tce;
 
 		} catch (Exception e) {
 			ThravvelCoreException coreException = new ThravvelCoreException(errorMessagesFilePath,
