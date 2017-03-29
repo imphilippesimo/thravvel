@@ -61,10 +61,10 @@ public class ServiceTest {
 
 	}
 
-	// @Test
+	@Test
 	public void connectUser() {
 		try {
-			user = userService.connect("693905", "693905pass");
+			user = userService.connect("693909", "693909pass");
 		} catch (ThravvelCoreException tce) {
 			logger.error(tce.getMessage().substring(tce.getMessage().lastIndexOf('-') + 1));
 		} catch (Exception e) {
@@ -105,17 +105,26 @@ public class ServiceTest {
 	}
 
 	@Test
-        @Ignore
 	public void updateUserWithoutErrors() throws ThravvelCoreException {
 
 		try {
-			logger.debug("is user yet confirmed ?: " + user.isConfirmed());
-			user.setConfirmed(true);
-			user = userService.createOrUpdateEntity(user);
-			logger.debug("is user now confirmed ?: " + user.isConfirmed());
+			logger.debug("is user yet confirmed ?: " + userService.isConfirmed(user.getPhoneNumber()));
+			userService.setUserConfirmed(user.getPhoneNumber(), true);
+			logger.debug("is user now confirmed ?: " + userService.isConfirmed(user.getPhoneNumber()));
 		} catch (ThravvelCoreException tce) {
 			throw tce;
 
+		}
+	}
+
+	// @Test
+	public void saveUserWithoutErrors() throws ThravvelCoreException {
+		try {
+			user = new User("+237690943773", "thravvel", 'M');
+			userService.createOrUpdateEntity(user);
+
+		} catch (ThravvelCoreException tce) {
+			throw tce;
 		}
 	}
 

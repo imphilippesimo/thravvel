@@ -23,4 +23,22 @@ public interface IUserService extends IGenericService<User> {
 	 */
 	public User connect(String phoneNumberAsString, String password) throws ThravvelCoreException;
 
+	/**
+	 * @param phoneNumber
+	 * @return
+	 */
+	public String getConfirmationCode(String phoneNumber) throws ThravvelCoreException;
+
+	/**
+	 * @param phoneNumber
+	 * @param true1
+	 */
+	public void setUserConfirmed(String phoneNumber, Boolean value) throws ThravvelCoreException;
+
+	/**
+	 * @param phoneNumber
+	 * @return
+	 */
+	public boolean isConfirmed(String phoneNumber) throws ThravvelCoreException;
+
 }

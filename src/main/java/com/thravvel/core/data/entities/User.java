@@ -8,16 +8,16 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.thravvel.core.utils.SharedResourcesProvider;
 import com.thravvel.core.utils.ThravvelCoreConstants;
-import javax.persistence.Embedded;
-import javax.persistence.Table;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -27,6 +27,7 @@ import javax.persistence.Table;
 @Table(name = "User")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
+@SuppressWarnings("unused")
 public class User extends BaseClass {
 
 	/**
@@ -75,36 +76,6 @@ public class User extends BaseClass {
 	private boolean confirmed;
 
 	private String confirmationCode;
-
-	/**
-	 * @return the confirmed
-	 */
-	public boolean isConfirmed() {
-		return confirmed;
-	}
-
-	/**
-	 * @param confirmed
-	 *            the confirmed to set
-	 */
-	public void setConfirmed(boolean confirmed) {
-		this.confirmed = confirmed;
-	}
-
-	/**
-	 * @return the confirmationCode
-	 */
-	public String getConfirmationCode() {
-		return confirmationCode;
-	}
-
-	/**
-	 * @param confirmationCode
-	 *            the confirmationCode to set
-	 */
-	public void setConfirmationCode(String confirmationCode) {
-		this.confirmationCode = confirmationCode;
-	}
 
 	@ManyToOne
 	private PaymentInfo paymentInfo;
