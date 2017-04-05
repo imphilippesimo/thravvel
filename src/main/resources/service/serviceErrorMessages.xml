@@ -60,4 +60,21 @@
 	<error key="THRAVVELCORESTATIONSERVICEERROR-008"
 		value="THRAVVELCORESTATIONSERVICEERROR-008 - An error occurred while getting the nearest stations around the user " />
 
+        <!-- Agency Service error messages -->
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-001"
+		value="THRAVVELCORECOMMENTSERVICEERROR-001 - An error occurred while getting agencies matching a keyword" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-002"
+		value="THRAVVELCORECOMMENTSERVICEERROR-002 - An error occurred while saving agency {0}" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-003"
+		value="THRAVVELCORECOMMENTSERVICEERROR-003 - An error occurred while getting agency by its id" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-004"
+		value="THRAVVELCORECOMMENTSERVICEERROR-004 - An error occurred while trying to delete agency {0}" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-005"
+		value="THRAVVELCORECOMMENTSERVICEERROR-005 - An error occurred while trying to delete an entity by its id" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-006"
+		value="THRAVVELCORECOMMENTSERVICEERROR-006 - An error occurred while trying to update agency {0}" />
+	<error key="THRAVVELCORECOMMENTSERVICEERROR-007"
+		value="THRAVVELCORECOMMENTSERVICEERROR-007 - An error occurred while getting all agencies " />
+
+        
 </messages>
