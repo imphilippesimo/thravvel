@@ -20,11 +20,15 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.data.entities.Agency;
+import com.thravvel.core.data.entities.Position;
 import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.service.contract.IAgencyService;
+import com.thravvel.core.service.contract.IStationService;
 import com.thravvel.core.service.contract.IUserService;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
+import java.util.Date;
+import java.util.logging.Level;
 
 /**
  * @author Philippe SIMO <philippechampion58@gmail.com>
@@ -44,6 +48,9 @@ public class ServiceTest {
 
 	@Autowired
 	IUserService userService;
+        
+        @Autowired
+        IStationService stationService;
 
 	@Before
 	public void doBeforeTests() throws ThravvelCoreException {
@@ -71,12 +78,28 @@ public class ServiceTest {
 			logger.error("Error occured", e);
 		}
 	}
+        
+        @Test
+        public void createSationsWithoutError(){
+            try {
+                Agency agency = new Agency("Touristique Service");
+                agency = agencyService.createOrUpdateEntity(agency);
+                Position p = new Position(15.2729196548462, -4.31589698791504, new Date());
+                Station s = new Station();
+                s.setArea("area 1 Service");
+                s.setPosition(p);
+                s.setAgency(agency);
+                stationService.createOrUpdateEntity(s);
+            } catch (ThravvelCoreException ex) {
+                java.util.logging.Logger.getLogger(ServiceTest.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
 	@Ignore
 	public void createAgencyWithoutErrors() throws ThravvelCoreException {
 		try {
 			Agency agency = new Agency("toulouse express", new ArrayList<Station>());
-			agencyService.createOrUpdateEntity(agency);
+			agency = agencyService.createOrUpdateEntity(agency);
 		} catch (ThravvelCoreException tce) {
 			throw tce;
 		}
@@ -104,7 +127,7 @@ public class ServiceTest {
 		}
 	}
 
-	@Test
+	//@Test
 	public void updateUserWithoutErrors() throws ThravvelCoreException {
 
 		try {

@@ -66,8 +66,8 @@ public class DaoTest {
         agencyDao.save(agency3);
     }
 
-    @Test
-    //@Ignore
+    //@Test
+    @Ignore
     public void createSationsWithoutError() {
         //stationDao.deleteAll();
         //agencyDao.deleteAll();
