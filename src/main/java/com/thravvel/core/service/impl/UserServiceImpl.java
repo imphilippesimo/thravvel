@@ -19,6 +19,7 @@ import com.thravvel.core.dao.contract.IUserDao;
 import com.thravvel.core.data.entities.User;
 import com.thravvel.core.service.CommonService;
 import com.thravvel.core.service.contract.IUserService;
+import com.thravvel.core.service.specific.chat.ChatLauncher;
 import com.thravvel.core.utils.Exceptions.ThravvelCoreException;
 
 /**
@@ -32,6 +33,15 @@ public class UserServiceImpl extends CommonService implements IUserService {
 	private Logger logger = Logger.getLogger(UserServiceImpl.class);
 
 	private UserServiceImpl() {
+
+		// initialize the chat server
+		ChatLauncher chatLauncher = new ChatLauncher();
+		try {
+			chatLauncher.launch();
+		} catch (ThravvelCoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

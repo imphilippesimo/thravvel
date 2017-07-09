@@ -2,7 +2,7 @@
 <web-app id="WebApp_ID" version="3.0"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-	
+
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -22,6 +22,15 @@
 		<servlet-name>dispatcherServlet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+
+	<!-- Set of listeners to do start-up operations -->
+	<!-- <listener> -->
+	<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
+	<!-- </listener> -->
+	<!-- <listener> -->
+	<!-- <listener-class>com.thravvel.core.utils.listeners.ContextListener</listener-class> -->
+	<!-- </listener> -->
+
 	<!--Filter to enable CORS (CROSS ORIGIN RESOURCE SHARING) requests -->
 	<filter>
 		<filter-name>CorsFilter</filter-name>

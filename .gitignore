@@ -13,3 +13,7 @@ target/
 /src/main/setup/glassfish-resources.xml
 src/main/resources/persistence/persistence.properties
 
+#Eclipse files
+.classpath
+.project
+

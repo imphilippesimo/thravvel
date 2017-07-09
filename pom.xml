@@ -83,6 +83,13 @@
 			<version>1.2.17</version>
 		</dependency>
 
+		<!-- socket.IO server java Implementation -->
+		<dependency>
+			<groupId>com.corundumstudio.socketio</groupId>
+			<artifactId>netty-socketio</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+
 
 		<!-- Utilities -->
 		<dependency>
