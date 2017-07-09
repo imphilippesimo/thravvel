@@ -20,9 +20,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.thravvel.core.SpringGlobalConfig;
 import com.thravvel.core.dao.contract.IAgencyDao;
+import com.thravvel.core.dao.contract.ICommentDao;
 import com.thravvel.core.dao.contract.IStationDao;
 import com.thravvel.core.dao.contract.IUserDao;
 import com.thravvel.core.data.entities.Agency;
+import com.thravvel.core.data.entities.Comment;
 import com.thravvel.core.data.entities.Position;
 import com.thravvel.core.data.entities.Station;
 import com.thravvel.core.data.entities.User;
@@ -34,9 +36,10 @@ import com.thravvel.core.utils.ThravvelCoreConstants;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(classes = {SpringGlobalConfig.class}, loader = AnnotationConfigWebContextLoader.class)
+@ContextConfiguration(classes = { SpringGlobalConfig.class }, loader = AnnotationConfigWebContextLoader.class)
 
 public class DaoTest {
+
 
     Logger logger = Logger.getLogger(DaoTest.class);
 
@@ -48,6 +51,9 @@ public class DaoTest {
 
     @Autowired
     IStationDao stationDao;
+    
+    @Autowired
+    ICommentDao commentDao;
 
     // @Test
     public void agencyDaoShouldNotBeNull() {
@@ -214,4 +220,24 @@ public class DaoTest {
 
         }
     }
+	@Test
+	public void createCommentWithoutError() {
+
+		// a station with id 12 should exist in the db, if not create one and
+		// use it
+		Station commentedStation = stationDao.findOne(12L);
+
+		// a user with phone number+237690943773 should exist in the db, if not
+		// create one and use it
+		User philippe = userDao.getUserByPhoneNumber("+237690943773");
+
+		// Agency agency = commentedStation.getAgency();
+
+		Comment comment = new Comment(null, null, philippe, commentedStation,
+				commentedStation.getAgency().getName() + " " + commentedStation.getArea() + " est bomayé la magie!!!",
+				0);
+
+		commentDao.save(comment);
+
+	}
 }
