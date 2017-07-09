@@ -176,6 +176,18 @@ public class DaoTest {
         s.setPosition(p);
         s.setAgency(agency5);
         stationDao.save(s);
+        p = new Position(3.838049732366, 11.511783599, new Date());
+        s = new Station();
+        s.setArea("area 16");
+        s.setPosition(p);
+        s.setAgency(agency5);
+        stationDao.save(s);
+        p = new Position(3.8692214633, 11.525001525, new Date());
+        s = new Station();
+        s.setArea("area 17");
+        s.setPosition(p);
+        s.setAgency(agency4);
+        stationDao.save(s);
 
     }
 
